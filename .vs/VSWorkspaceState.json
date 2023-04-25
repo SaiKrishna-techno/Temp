@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CarPoolingTask",
+    "\\CarPoolingTask\\CarPooling",
+    "\\CarPoolingTask\\CarPooling.Contracts",
+    "\\CarPoolingTask\\CarPooling.Models",
+    "\\CarPoolingTask\\CarPooling.Services",
+    "\\CarPoolingTask\\CarPooling\\Controllers"
+  ],
+  "SelectedNode": "\\CarPoolingTask\\CarPooling.Services\\RideServices.cs",
+  "PreviewInSolutionExplorer": false
+}
