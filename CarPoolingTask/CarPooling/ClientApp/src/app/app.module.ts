@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import * as Notiflix from 'notiflix';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import * as Notiflix from 'notiflix';
     ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot()
   ],
   providers: [AuthGuard, Auth2Guard, {

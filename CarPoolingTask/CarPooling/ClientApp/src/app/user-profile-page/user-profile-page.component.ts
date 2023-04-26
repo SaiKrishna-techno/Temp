@@ -6,6 +6,7 @@ import { User } from 'src/models/user';
 import * as Notiflix from 'notiflix';
 
 import { RideServiceService } from '../services/RideService.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-profile-page',
@@ -16,7 +17,8 @@ export class UserProfilePageComponent implements OnInit {
 
   constructor(
     private rideService: RideServiceService,
-    private route: Router
+    private route: Router,
+    private spinner: NgxSpinnerService
   ) {
     this.activeUser = JSON.parse(localStorage.getItem("user")!);
   }
@@ -30,7 +32,8 @@ export class UserProfilePageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    Notiflix.Loading.dots("Loading");
+    //Notiflix.Loading.dots("Loading");
+    this.spinner.show()
     //Getting the Previously Booked Rides
     this.rideService.GetBookedRide(this.activeUser.userId!).subscribe((data) => {
       this.PreviouslyBookedRides = data.response;
@@ -45,7 +48,12 @@ export class UserProfilePageComponent implements OnInit {
       if (this.PreviouslyOfferedRides == null) {
         this.offeredRidesCount = true;
       }
-      Notiflix.Loading.remove(2000);
+      //Notiflix.Loading.remove(2000);
+      // this.spinner.hide()
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 5000);
     })
   }
 

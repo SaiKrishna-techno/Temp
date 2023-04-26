@@ -1,9 +1,27 @@
+<!-- <ngx-spinner bdColor="rgba(0,0,0,0.8)" color="#fff" size="large" [fullScreen] = "false">
+  <img src="../../assets/ezgif.com-crop.gif" alt="Computer man" style="width: 30vh" />
+</ngx-spinner> -->
+<ngx-spinner
+  bdColor="white"
+  size="medium"
+  color="#fff"
+  [fullScreen]="true"
+  ><p style="color: white">
+    <img
+      src="../../assets/car3.gif"
+      alt="Computer man"
+      style="width: 100vh"
+    /></p
+></ngx-spinner>
+
 <div class="main-container">
   <div class="top-bar">
-    <a [routerLink]="'/home'"> <img class="home-logo1" src="../../assets/logo (1).png" /></a>
+    <a [routerLink]="'/home'">
+      <img class="home-logo1" src="../../assets/logo (1).png"
+    /></a>
     <div class="user-profile">
       <div class="dropdown">
-        <button class="dropbtn">{{activeUser.userName}}</button>
+        <button class="dropbtn">{{ activeUser.userName }}</button>
         <div class="dropdown-content">
           <a [routerLink]="'/infoupdate'">Profile</a>
           <a [routerLink]="'/profile'">My Rides</a>
@@ -21,9 +39,12 @@
         <div class="ride-info">
           <div class="user-info">
             <!-- <div class="user-name">{{bookedride.offererName}}</div> -->
-            <div class="user-name"> {{bookedride.offererName}} </div>
+            <div class="user-name">{{ bookedride.offererName }}</div>
             <div class="user-dp">
-              <img class="user-photo" src="../../assets/MicrosoftTeams-image (3).png" />
+              <img
+                class="user-photo"
+                src="../../assets/MicrosoftTeams-image (3).png"
+              />
             </div>
           </div>
           <div class="ride-details">
@@ -32,12 +53,28 @@
                 <span>From</span>
                 <div class="source-with-icon">
                   <div>{{ bookedride.startPoint }}</div>
-                  <div class="ride-icon2"> <i class="fa fa-circle" style="font-size:18px;"></i>
-                    <i class="fa fa-circle stopicon2" style="font-size:10px; color:lightgray"></i>
-                    <i class="fa fa-circle stopicon2" style="font-size:10px; color:lightgray"></i>
-                    <i class="fa fa-circle stopicon2" style="font-size:10px; color:lightgray"></i>
-                    <i class="fa fa-circle stopicon2" style="font-size:10px; color:lightgray"></i>
-                    <i class='fas fa-map-marker-alt' style='font-size:24px;color:darkblue'></i>
+                  <div class="ride-icon2">
+                    <i class="fa fa-circle" style="font-size: 18px"></i>
+                    <i
+                      class="fa fa-circle stopicon2"
+                      style="font-size: 10px; color: lightgray"
+                    ></i>
+                    <i
+                      class="fa fa-circle stopicon2"
+                      style="font-size: 10px; color: lightgray"
+                    ></i>
+                    <i
+                      class="fa fa-circle stopicon2"
+                      style="font-size: 10px; color: lightgray"
+                    ></i>
+                    <i
+                      class="fa fa-circle stopicon2"
+                      style="font-size: 10px; color: lightgray"
+                    ></i>
+                    <i
+                      class="fas fa-map-marker-alt"
+                      style="font-size: 24px; color: darkblue"
+                    ></i>
                   </div>
                 </div>
               </div>
@@ -57,15 +94,15 @@
               </div>
               <div class="time">
                 <span>Time</span>
-                <div>{{bookedride.timeSlot}}</div>
+                <div>{{ bookedride.timeSlot }}</div>
               </div>
               <div class="offerid">
                 <span>Offerer Id</span>
-                <div>{{bookedride.offererUserId}}</div>
+                <div>{{ bookedride.offererUserId }}</div>
               </div>
               <div class="offername">
                 <span>Offerer Name</span>
-                <div>{{bookedride.offererName}}</div>
+                <div>{{ bookedride.offererName }}</div>
               </div>
             </div>
           </div>
@@ -75,16 +112,18 @@
         You Have Not Booked Any Rides Before
       </div>
     </div>
-
     <!-- Previously OfferedRides -->
     <div class="offered-rides">
       <div class="offered-ride-header">Offered Rides</div>
       <div *ngFor="let offeredride of PreviouslyOfferedRides">
         <div class="ride-info">
           <div class="user-info">
-            <div class="user-name">{{offeredride.offererName}}</div>
+            <div class="user-name">{{ offeredride.offererName }}</div>
             <div class="user-dp">
-              <img class="user-photo" src="../../assets/MicrosoftTeams-image (3).png" />
+              <img
+                class="user-photo"
+                src="../../assets/MicrosoftTeams-image (3).png"
+              />
             </div>
           </div>
           <div class="ride-details">
@@ -92,37 +131,53 @@
               <div class="source">
                 <span>From</span>
                 <div class="source-with-icon">
-                  <div>{{offeredride.startPoint}}</div>
-                  <div class="ride-icon2"> <i class="fa fa-circle" style="font-size:18px;"></i>
-                    <i class="fa fa-circle stopicon2" style="font-size:10px; color:lightgray"></i>
-                    <i class="fa fa-circle stopicon2" style="font-size:10px; color:lightgray"></i>
-                    <i class="fa fa-circle stopicon2" style="font-size:10px; color:lightgray"></i>
-                    <i class="fa fa-circle stopicon2" style="font-size:10px; color:lightgray"></i>
-                    <i class='fas fa-map-marker-alt' style='font-size:24px;color:darkblue'></i>
+                  <div>{{ offeredride.startPoint }}</div>
+                  <div class="ride-icon2">
+                    <i class="fa fa-circle" style="font-size: 18px"></i>
+                    <i
+                      class="fa fa-circle stopicon2"
+                      style="font-size: 10px; color: lightgray"
+                    ></i>
+                    <i
+                      class="fa fa-circle stopicon2"
+                      style="font-size: 10px; color: lightgray"
+                    ></i>
+                    <i
+                      class="fa fa-circle stopicon2"
+                      style="font-size: 10px; color: lightgray"
+                    ></i>
+                    <i
+                      class="fa fa-circle stopicon2"
+                      style="font-size: 10px; color: lightgray"
+                    ></i>
+                    <i
+                      class="fas fa-map-marker-alt"
+                      style="font-size: 24px; color: darkblue"
+                    ></i>
                   </div>
                 </div>
               </div>
               <div class="date">
                 <span>Date</span>
-                <div>{{offeredride.date}}</div>
+                <div>{{ offeredride.date }}</div>
               </div>
               <div class="price">
                 <span>Price</span>
-                <div>{{offeredride.farePerBlock | currency}}</div>
+                <div>{{ offeredride.farePerBlock | currency }}</div>
               </div>
             </div>
             <div class="right-half">
               <div class="destination">
                 <span>To</span>
-                <div>{{offeredride.endPoint}}</div>
+                <div>{{ offeredride.endPoint }}</div>
               </div>
               <div class="time">
                 <span>Time</span>
-                <div>{{offeredride.timeSlot}}</div>
+                <div>{{ offeredride.timeSlot }}</div>
               </div>
               <div class="capacity">
                 <span>Seats</span>
-                <div>{{offeredride.capacity[0]}}</div>
+                <div>{{ offeredride.capacity[0] }}</div>
               </div>
             </div>
           </div>

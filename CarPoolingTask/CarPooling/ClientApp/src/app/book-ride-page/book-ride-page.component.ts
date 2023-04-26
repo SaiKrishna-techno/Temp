@@ -70,7 +70,7 @@ export class BookRidePageComponent implements OnInit {
 
   //Function which gets triggered Upon Submitting the Form, This method makes the Http Call using service  and Registers the Request To The Server
   BookRideFromSubmission() {
-    Notiflix.Loading.hourglass("Finding Rides");
+    //Notiflix.Loading.hourglass("Finding Rides");
     this.bookRideRequest.startPoint = this.bookRideForm.get('source')?.value;
     this.bookRideRequest.startPoint = this.bookRideRequest.startPoint.replace(/\s+/g, "").toLowerCase();
     this.bookRideRequest.endPoint = this.bookRideForm.get('destination')?.value;
@@ -87,7 +87,7 @@ export class BookRidePageComponent implements OnInit {
         console.log("Sorry Could not Register Your Request")
       }
       this.FindallMatchedRides()
-      Notiflix.Loading.remove(2000);
+      //Notiflix.Loading.remove(2000);
     });
     this.bookRideForm.reset();
   }

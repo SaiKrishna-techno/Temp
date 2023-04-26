@@ -5,7 +5,8 @@ import { ResponseBase } from 'src/models/response-base';
 import { User } from 'src/models/user';
 import { UserService } from '../services/UserService.service';
 import { ToastrService } from 'ngx-toastr';
-import * as Notiflix from 'notiflix';
+import  jwt_decode from "jwt-decode";
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 
@@ -22,7 +23,8 @@ export class LoginComponentComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private api: UserService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) { }
 
   // Used to Deal with the Response that we get from the HTTP call
@@ -51,7 +53,6 @@ export class LoginComponentComponent implements OnInit {
 
   // gets Triggered  When Form is Submitted and calls the concerned service 
   onSubmit() {
-    Notiflix.Loading.dots("Logging In");
     let user: User = {
       userName: " ",
       email: this.loginForm.get('email')?.value,
@@ -67,6 +68,9 @@ export class LoginComponentComponent implements OnInit {
         }
         localStorage.setItem("user", JSON.stringify(this.loggedInUser))
         localStorage.setItem("token", JSON.stringify(this.loggedInUser.password))
+        let  decodedtoken = this.getDecodedAccessToken(this.loggedInUser.password)
+        let tokenExipryTime= new Date (decodedtoken.exp * 1000)
+        localStorage.setItem("tokenExpiryTime",tokenExipryTime.toString())
         if (data.errorMessage == null) {
           this.toastr.success('Login Successful ');
           this.router.navigate(['/home'])
@@ -76,12 +80,19 @@ export class LoginComponentComponent implements OnInit {
     } catch (e) {
       console.log("Something Went Wrong Please Try Again")
     }
-    Notiflix.Loading.remove(3000);
   }
 
   // Deals with the visibility of the Warning
   onClick() {
     this.invalidDetails = false
   }
+
+  getDecodedAccessToken(token: string): any {
+  try {
+    return jwt_decode(token);
+  } catch(Error) {
+    return null;
+  }
+}
 
 }
